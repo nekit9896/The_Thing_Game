@@ -1,1 +1,1 @@
-# The_Thing_Game
+# The Thing Game
