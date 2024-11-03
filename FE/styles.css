@@ -1,0 +1,29 @@
+body {
+   text-align: center;
+   display: block;
+   line-height: 25px;
+   color: #789009;
+  margin:0auto;
+}
+
+h1 {
+  test-align: center;
+  line-height: 30px;
+  color: #090998;
+}
+
+input{
+    border-image: #342343;
+    border-image-slice: 10;
+}
+
+button {
+    padding: 12px;
+    font-size: 12px;
+    border-image: linear-gradient(to right, #ff7382, #cb2fe7);
+    border-image-slice: 10;
+    border-radius: 0px;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
