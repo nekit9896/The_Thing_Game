@@ -1,17 +1,17 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, flash, redirect, render_template, url_for
+from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import PasswordField, StringField, SubmitField
 from wtforms.fields.simple import EmailField
 from wtforms.validators import DataRequired, EqualTo
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config["SECRET_KEY"] = "your_secret_key"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+login_manager.login_view = "login"
 
 
 # Модель пользователя
@@ -24,11 +24,13 @@ class User(UserMixin, db.Model):
 
 # Форма регистрации
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    mail = EmailField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+    username = StringField("Username", validators=[DataRequired()])
+    mail = EmailField("Username", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
+    confirm_password = PasswordField(
+        "Confirm Password", validators=[DataRequired(), EqualTo("password")]
+    )
+    submit = SubmitField("Sign Up")
 
 
 @login_manager.user_loader
@@ -36,25 +38,25 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         new_user = User(
             username=form.username.data,
-            password=form.password.data  # В реальном приложении необходимо хешировать пароль
+            password=form.password.data,  # В реальном приложении необходимо хешировать пароль
         )
         db.session.add(new_user)
         db.session.commit()
-        flash('Account created successfully!', 'success')
-        return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+        flash("Account created successfully!", "success")
+        return redirect(url_for("login"))
+    return render_template("register.html", form=form)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     # Логика входа будет здесь
-    return render_template('login.html')
+    return render_template("login.html")
 
 
 # Для инициализации базы данных
@@ -63,5 +65,5 @@ def create_tables():
     db.create_all()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
