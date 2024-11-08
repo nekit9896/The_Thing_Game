@@ -21,13 +21,3 @@ black = "22.3.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.black]
-line-length = 120
-target-version = ["py310"]  # Укажите вашу версию Python
-
-[tool.isort]
-profile = "black"  # Использовать профайл black для совместимости
-line_length = 120
-known_third_party = []
-skip_gitignore = true
