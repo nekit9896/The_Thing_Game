@@ -2,8 +2,7 @@ from flask import Flask, flash, redirect, render_template, url_for
 from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms.fields.simple import (EmailField, PasswordField, StringField,
-                                   SubmitField)
+from wtforms.fields.simple import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, EqualTo
 
 app = Flask(__name__, template_folder="../fe/templates")
