@@ -1,17 +1,17 @@
 repos:
-  - repo: https://github.com/pre-commit/mirrors-isort
+  - repo: git@gitlab.com:pre-commit/mirrors-isort
     rev: v5.10.1  # Убедитесь, что версия актуальна
     hooks:
       - id: isort
         args: ["--profile", "black"]
 
-  - repo: https://github.com/psf/black
+  - repo: git@gitlab.com:psf/black
     rev: 22.3.0  # Убедитесь, что версия актуальна
     hooks:
       - id: black
         args: ["--line-length", "121"]
 
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: git@gitlab.com:pycqa/flake8
     rev: 4.0.1  # Убедитесь, что версия актуальна
     hooks:
       - id: flake8
