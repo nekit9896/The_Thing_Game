@@ -20,7 +20,7 @@ jobs:
           pip install isort
 
       - name: Run isort
-        run: isort . --check —diff
+        run: isort . --check --diff
 
   lint_flake8:
     runs-on: ubuntu-latest
