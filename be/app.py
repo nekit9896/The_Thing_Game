@@ -1,12 +1,11 @@
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, flash, redirect, render_template, url_for
 from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms.fields.simple import StringField, EmailField, PasswordField, SubmitField
+from wtforms.fields.simple import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, EqualTo
 
-
-app = Flask(__name__, template_folder='../fe/templates')
+app = Flask(__name__, template_folder="../fe/templates")
 app.config["SECRET_KEY"] = "your_secret_key"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 db = SQLAlchemy(app)
