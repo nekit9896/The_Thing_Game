@@ -13,8 +13,9 @@ flask = "^3.0.3"
 flask-wtf = "^1.2.2"
 flask-sqlalchemy = "^3.1.1"
 flask-login = "^0.6.3"
-isort = "^5.13.2"
+isort = "5.10.0"
 flake8 = "^7.1.1"
+black = "22.3.0"
 
 
 [build-system]
