@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}НЕЧТО{% endblock %}
+
+{% block content %}
+<meta charset="UTF-8">
+<h1>Регистрация</h1>
+    <body>
+            <div class="form-group">
+                <label for="exampleInputEmail">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+            </div>
+
+            <div class="username">
+                <label for="username">Username</label>
+                <input type="username" class="form-control" id="username" placeholder="Enter username">
+            </div>
+
+            <div class="pass">
+                <label for="password">Password</label>
+                <input type="pass" class="form-control" id="password" placeholder="Enter password">
+            </div>
+
+            <button type="button" class="btn">OK</button>
+
+    </body>
+{% endblock %}
