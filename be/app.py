@@ -44,6 +44,7 @@ def register():
     if form.validate_on_submit():
         new_user = User(
             username=form.username.data,
+            mail=form.mail.data,
             password=form.password.data,  # В реальном приложении необходимо хешировать пароль
         )
         db.session.add(new_user)
@@ -59,9 +60,7 @@ def login():
     return render_template("login.html")
 
 
-# Для инициализации базы данных
-@app.before_first_request
-def create_tables():
+with app.app_context():
     db.create_all()
 
 
