@@ -5,7 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms.fields.simple import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, EqualTo
 
-app = Flask(__name__, template_folder="fe/templates", static_folder='static')
+app = Flask(__name__, template_folder="fe/templates", static_folder="static")
 app.config["SECRET_KEY"] = "your_secret_key"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 db = SQLAlchemy(app)
