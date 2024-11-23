@@ -1,12 +1,25 @@
 # The Thing Game
 
-### Настройка окружения
+## Запуск проекта
+#### 1. Настройка окружения
 ```commandline
 poetry shell 
 В stdout будет команда 'emulate bash -c ...' для активации виртуального окржуения
 ```
 
-### Установка пакетов
+#### 2. Установка пакетов
+Команда poetry install использует файл poetry.lock, чтобы установить все зависимости строго из этого файла (включая их версии), вместо вычисления новых версий из pyproject.toml. 
+Это помогает обеспечить воспроизводимость окружения.
 ```commandline
-poetry add Flask Flask-WTF Flask-SQLAlchemy Flask-Login black flake8 isort requests
+poetry install
+```
+
+## Дополнительно
+Если хотите обновить зависимости и сохранить изменения в poetry.lock:
+```commandline
+poetry update
+```
+Если нужно пересобрать окружение полностью (удалить ранее установленные зависимости) и заново установить всё из poetry.lock:
+```commandline
+poetry install --no-root
 ```
